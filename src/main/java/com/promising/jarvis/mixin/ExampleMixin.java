@@ -1,4 +1,4 @@
-package com.promising.aichat.mixin;
+package com.promising.jarvis.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

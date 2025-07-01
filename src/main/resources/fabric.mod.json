@@ -9,17 +9,20 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/cmypromising/MCAIChat.git"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/mcaichat/icon.png",
+	"icon": "assets/jarvis/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.promising.aichat.MCAIChat"
+			"com.promising.jarvis.Jarvis"
 		],
 		"fabric-datagen": [
-			"com.promising.aichat.MCAIChatDataGenerator"
+			"com.promising.jarvis.JarvisDataGenerator"
+		],
+		"client": [
+			"com.promising.jarvis.JarvisDataClient"
 		]
 	},
 	"mixins": [
