@@ -1,18 +1,17 @@
 package com.promising.jarvis.llm.deepseek;
 
-
 import com.google.gson.annotations.SerializedName;
 
 public class ContentResponseBody {
-    @SerializedName("success")
-    private boolean success;
+    @SerializedName("type")
+    private Integer type;
     @SerializedName("command")
     private String command;
     @SerializedName("additional_info")
     private String additionalInfo;
 
-    public boolean isSuccess() { return success; }
-    public void setSuccess(boolean success) { this.success = success; }
+    public Integer getType() { return type; }
+    public void setType(Integer type) { this.type = type; }
 
     public String getCommand() { return command; }
     public void setCommand(String command) { this.command = command; }
@@ -23,7 +22,7 @@ public class ContentResponseBody {
     @Override
     public String toString() {
         return "ContentResponseBody{" +
-                "success=" + success +
+                "type=" + type +
                 ", command='" + command + '\'' +
                 ", additionalInfo='" + additionalInfo + '\'' +
                 '}';

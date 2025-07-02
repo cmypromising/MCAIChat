@@ -13,7 +13,7 @@ public interface NLParser {
      * @param context 用户的自然语言需求
      * @return 解析结果
      */
-    ContentResponseBody parse(String context) throws IOException;
+    ContentResponseBody parse(String context, String currentPlayerInfo) throws IOException;
 
     /**
      * 解析器优先级

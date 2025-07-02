@@ -22,10 +22,10 @@ public class DeepSeekParser implements NLParser {
     public static DeepSeekResponseBody deepSeekResponseBody;
 
     @Override
-    public ContentResponseBody parse(String context) {
+    public ContentResponseBody parse(String context, String currentPlayerInfo) {
         Response response = null;
         try {
-            response = deepSeekClient.getResponse(context);
+            response = deepSeekClient.getResponse(context, currentPlayerInfo);
             ResponseBody responseBody = response.body();
             if (responseBody == null) {
                 throw new IOException("响应体为空");

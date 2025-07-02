@@ -1,6 +1,7 @@
 package com.promising.jarvis.llm.prompt;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
@@ -40,10 +41,23 @@ public class SystemPromptLoader {
         }
 
         JsonObject promptObj = promptsConfig.getAsJsonObject(promptKey);
-        return Optional.of(new SystemPrompt(
-                promptObj.get("role").getAsString(),
-                promptObj.get("content").getAsString()
-        ));
+
+        // 获取 role
+        String role = promptObj.get("role").getAsString();
+
+        // 获取 content 数组
+        JsonArray contentArray = promptObj.getAsJsonArray("content");
+
+        // 拼接 content 数组中的字符串
+        StringBuilder contentBuilder = new StringBuilder();
+        for (int i = 0; i < contentArray.size(); i++) {
+            contentBuilder.append(contentArray.get(i).getAsString());
+            // 可以选择性地添加换行符或空格
+            if (i < contentArray.size() - 1) {
+                contentBuilder.append("\n"); // 如果需要换行
+            }
+        }
+        return Optional.of(new SystemPrompt(role, contentBuilder.toString()));
     }
 
     /**

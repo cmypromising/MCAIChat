@@ -10,7 +10,7 @@ Welcome to **Jarvis** — the ultimate AI assistant for your Minecraft adventure
 
 ## 🚀 Features
 
-- **Natural Language Processing**: Talk to Jarvis as you would to a friend! No more clunky commands—just plain English.
+- **Natural Language Processing**: Talk to Jarvis as you would to a friend! No more clunky commands—just plain language.
 - **Task Automation**: Let Jarvis handle your tedious chores, from mining to crafting, so you can focus on the fun stuff.
 - **Custom Commands**: Easily extend Jarvis's capabilities with custom commands tailored to your world.
 - **Interactive Responses**: Get witty responses from Jarvis, making your gameplay experience not just efficient but also entertaining!

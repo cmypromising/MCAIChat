@@ -1,8 +1,10 @@
 package com.promising.jarvis.llm.client.impl;
 
+import com.promising.jarvis.Jarvis;
 import com.promising.jarvis.llm.client.LLMClient;
 import com.promising.jarvis.llm.deepseek.DeepSeekRequestBody;
 import io.github.cdimascio.dotenv.Dotenv;
+import joptsimple.internal.Strings;
 import okhttp3.*;
 import okhttp3.logging.HttpLoggingInterceptor;
 
@@ -31,7 +33,11 @@ public class DeepSeekLLMClient implements LLMClient {
         this.mediaType = MediaType.parse("application/json");
     }
 
-    public Response getResponse(String userMessage) throws IOException {
+    public Response getResponse(String userMessage, String currentPlayerInfo) throws IOException {
+        if (!Strings.isNullOrEmpty(currentPlayerInfo)){
+            userMessage = "当前时刻主人基本信息{" + currentPlayerInfo + "},主人需求{\n" + userMessage + "\n}";
+        }
+        Jarvis.LOGGER.info("userMessage:{}", userMessage);
         DeepSeekRequestBody requestBody = DeepSeekRequestBody.builder()
                 .addSystemPrompt("minecraft_assistant")
                 .addUserMessage(userMessage)
