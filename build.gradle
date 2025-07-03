@@ -33,10 +33,21 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	implementation 'com.squareup.okhttp3:okhttp:4.9.3'  // 或最新版的 OkHttp
-	implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'  // 可选，日志拦截器
-	// .env 文件支持
-	implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+	// OkHttp 核心库
+	modImplementation include("com.squareup.okhttp3:okhttp:4.10.0")
+	// OkHttp 日志拦截器
+	modImplementation include("com.squareup.okhttp3:logging-interceptor:4.10.0")
+	// OkHttp 的底层 I/O 库
+	modImplementation include("com.squareup.okio:okio:3.0.0")
+	// Kotlin 标准库
+	modImplementation include("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
+	// Kotlin 反射库（某些 OkHttp 功能需要）
+	modImplementation include("org.jetbrains.kotlin:kotlin-reflect:1.9.0")
+	// .env 支持
+	modImplementation include("io.github.cdimascio:dotenv-java:3.0.0")
+	// JNA（dotenv-java 的依赖）
+	modImplementation include("net.java.dev.jna:jna:5.13.0")
+
 	// 测试依赖
 	testImplementation 'junit:junit:4.13.2'
 }
@@ -69,6 +80,23 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${inputs.properties.archivesName}"}
 	}
+	// 只包含必要的依赖
+	def includeDeps = [
+			"okhttp",
+			"okio",
+			"kotlin",
+			"dotenv",
+			"jna"
+	]
+
+	from {
+		configurations.runtimeClasspath
+				.findAll { dep ->
+					includeDeps.any { name -> dep.name.contains(name) }
+				}
+				.collect { it.isDirectory() ? it : zipTree(it) }
+	}
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 // configure the maven publication
