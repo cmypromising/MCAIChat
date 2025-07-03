@@ -1,7 +1,5 @@
 package com.promising.jarvis.llm.client;
 
-import okhttp3.Response;
-
 import java.io.IOException;
 
 /**
@@ -16,5 +14,5 @@ public interface LLMClient {
      * @return : LLM响应结果
      * @throws IOException: 响应异常的报错
      */
-    public Response getResponse(String userMessage, String currentPlayerInfo) throws IOException;
+    public String getResponse(String userMessage, String currentPlayerInfo) throws IOException, InterruptedException;
 }
