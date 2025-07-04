@@ -1,15 +1,14 @@
 {
 	"schemaVersion": 1,
-	"id": "mcaichat",
+	"id": "fabric-jarvis",
 	"version": "${version}",
-	"name": "MCAIChat",
+	"name": "jarvis",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
 		"promising"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/cmypromising/MCAIChat.git"
+		"sources": "https://github.com/cmypromising/Minecraft-Fabric-Jarvis.git"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/jarvis/icon.png",
@@ -26,7 +25,7 @@
 		]
 	},
 	"mixins": [
-		"mcaichat.mixins.json"
+		"jarvis.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.14",

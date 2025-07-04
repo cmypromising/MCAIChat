@@ -33,10 +33,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	implementation 'com.squareup.okhttp3:okhttp:4.9.3'  // 或最新版的 OkHttp
-	implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'  // 可选，日志拦截器
-	// .env 文件支持
-	implementation 'io.github.cdimascio:dotenv-java:3.0.0'
 	// 测试依赖
 	testImplementation 'junit:junit:4.13.2'
 }
