@@ -3,7 +3,7 @@
 	"id": "fabric-jarvis",
 	"version": "${version}",
 	"name": "jarvis",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Jarvis is a Minecraft mod that leverages advanced AI-powered by a large language model to bring a whole new level of interactivity to your gameplay. Just type /nl <natural language> followed by your command and watch as Jarvis interprets your words and takes action. ",
 	"authors": [
 		"promising"
 	],
