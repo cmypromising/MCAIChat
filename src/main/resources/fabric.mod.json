@@ -22,6 +22,9 @@
 		],
 		"client": [
 			"com.promising.jarvis.JarvisDataClient"
+		],
+		"modmenu": [
+			"com.promising.jarvis.gui.ModMenuIntegration"
 		]
 	},
 	"mixins": [
